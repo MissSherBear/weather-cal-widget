@@ -62,10 +62,14 @@ const custom = {
 
   async background(widget) {
     if (!code.data.sun) { await code.setupSunrise() }
-    // const current = code.now.getTime()
-     //Define file path
-     const dirPath = files.joinPath(files.documentsDirectory(), "Weather Cal")
-     //Set default, 'daytime' background
+    const current = code.now.getTime()
+    // Define file path
+    const dirPath = files.joinPath(files.documentsDirectory(), "Weather Cal")
+    if (!files.fileExists(dirPath) || !files.isDirectory(dirPath)) {files.createDirectory(dirPath) }
+    
+    files.writeImage(files.joinPath(directoryPath, 
+    
+     // Set default, 'daytime' background
      var path = files.joinPath(dirPath, "Weather Cal-light.jpg")
 
      // Determines if time now is at night
